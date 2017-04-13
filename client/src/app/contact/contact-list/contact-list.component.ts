@@ -8,16 +8,14 @@ import { Contact } from "../contact";
 })
 
 export class ContactListComponent implements OnInit {
-@Input() contacts;
-@Output() select: EventEmitter<Contact>;
+
+
   constructor() {
-    this.select = new EventEmitter();
+
   }
 
   ngOnInit() {
   }
 
-contactSelected(contact: Contact){
-    this.select.emit(contact);
-}
+
 }

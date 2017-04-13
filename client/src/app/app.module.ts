@@ -31,7 +31,7 @@ import { DialogComponent, DialogResultExampleDialog } from './contact/dialog/dia
     HttpModule,
     FlexLayoutModule,
     MaterialModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
 
 
   ],

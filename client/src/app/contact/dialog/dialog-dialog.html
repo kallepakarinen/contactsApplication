@@ -1,32 +1,32 @@
 <h1 md-dialog-title>New contact</h1>
-<div md-dialog-content ng-controller="ctrl">
+<div md-dialog-content>
   <md-input-container floatPlaceholder="auto">
-  <input mdInput id="fName" ng-model="fName" name="componentProperty" type="text" required
-         placeholder="Firstname">
-</md-input-container>
+    <input mdInput ng-model="contact.firstName" type="text" required
+           placeholder="Firstname">
+  </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="lName" ng-model="lName" name="componentProperty" type="text" required
+    <input mdInput  ng-model="contact.lastName" type="text" required
            placeholder="Lastname">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="phone" ng-model="phone" name="componentProperty" type="text" required
+    <input mdInput ng-model="contact.phone" type="text" required
            placeholder="Phone">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="address" ng-model="address" name="componentProperty" type="text" required
+    <input mdInput ng-model="contact.address" type="text" required
            placeholder="Address">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput id="city" ng-model="city" name="componentProperty" type="text" required
+    <input mdInput ng-model="contact.city" type="text" required
            placeholder="City">
   </md-input-container>
 
 </div>
 <div md-dialog-actions>
-  <button md-button ng-click="saveContact()">Cancel</button>
-  <button md-button (click)="dialogRef.close('Option 2')">Add</button>
+  <button md-button (click)="saveContact()">Add</button>
+  <button md-button (click)="dialogRef.close('Option 2')">No Add</button>
 </div>
