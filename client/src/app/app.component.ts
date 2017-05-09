@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Contact } from "./contact/contact";
-import { ContactService } from "./contact/services/contact.service";
 
 @Component({
   selector: 'app-root',
@@ -11,11 +9,22 @@ import { ContactService } from "./contact/services/contact.service";
 
 export class AppComponent {
 
-  title = 'apps!';
+  //title = 'apps!';
 
-  contacts: Contact[];
-  constructor(contactService: ContactService){
-    this.contacts = contactService.findContacts();
+    constructor(){
+}
 
-  }
+
+  /*
+      constructor(){
+    this.ContactService.findContacts().subscribe(data =>{
+console.log(data.json);
+//this.contacts = data.json();
+      this.contacts = data.json();
+    });
+
+  }*/
+
+
+
 }
