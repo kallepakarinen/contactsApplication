@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MdButtonModule, MdInputModule, MdCardModule, MdIconModule, MdDialogModule
 } from '@angular/material';
-
+import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
@@ -22,7 +22,21 @@ import {DialogService} from "./contact/services/dialog.service";
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 //import {Observable} from "rxjs";
-
+const routes = [
+  {
+    path: '',
+    redirectTo: 'user',
+    pathMatch: 'full'
+  },
+  {
+    path: 'user',
+    component:UserComponent
+  },
+  {
+    path: 'contact',
+    component:ContactComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -46,7 +60,8 @@ import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
     MdInputModule,
     MdCardModule,
     MdIconModule,
-    MdDialogModule
+    MdDialogModule,
+    RouterModule.forRoot(routes)
   //Observable
   ],
 

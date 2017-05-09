@@ -1,0 +1,17 @@
+md-card {
+  width: 400px;
+  margin: 10px 0;
+
+}
+span{
+  font-weight: bold;
+}
+
+#iconAccount{
+  margin: auto;
+  color: blue;
+}
+
+.md-card-image{
+  float:right;
+}

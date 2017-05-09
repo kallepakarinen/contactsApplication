@@ -1,0 +1,19 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <app-contact-list
+    [contacts]="contacts"
+    (remove)="deleteContact($event)"
+    (update)="contactUpdate($event)"
+    (map)="showOnMap($event)">
+  </app-contact-list>
+  <button md-icon-button (click)="saveContact()">
+    <md-icon>add</md-icon>
+  </button>
+</div>
+
+<!--
+<app-list-item [contacts]="contacts" (select)="contactSelected($event)"></app-list-item>
+
+<div *ngIf="selectedContact">
+  Selected: {{selectedContact.id}}
+</div>
+-->
