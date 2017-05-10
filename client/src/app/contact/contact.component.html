@@ -1,9 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <app-contact-list
     [contacts]="contacts"
-    (remove)="deleteContact($event)"
-    (update)="contactUpdate($event)"
-    (map)="showOnMap($event)">
+    (contactDelete)="deleteContact($event)"
+    (contactUpdate)="contactUpdate($event)"
+    (showMap)="showOnMap($event)">
   </app-contact-list>
   <button md-icon-button (click)="saveContact()">
     <md-icon>add</md-icon>

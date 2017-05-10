@@ -9,29 +9,17 @@ import { Contact } from "../contact";
 })
 
 export class ContactListComponent implements OnInit {
-  @Input() contacts: Contact[];
-  @Output() remove: EventEmitter<Contact>;
-  @Output() update: EventEmitter<Contact>;
-  @Output() map: EventEmitter<Contact>;
+  @Input() contacts: [Contact];
+  @Output() contactUpdate: EventEmitter<Contact>;
+  @Output() contactDelete: EventEmitter<Contact>;
+  @Output() showMap: EventEmitter<Contact>;
 
   constructor() {
-    this.remove = new EventEmitter();
-    this.update = new EventEmitter();
-    this.map = new EventEmitter();
+    this.contactUpdate = new EventEmitter();
+    this.contactDelete = new EventEmitter();
+    this.showMap = new EventEmitter();
   }
 
   ngOnInit() {
-  }
-
-  contactDelete(contact: Contact){
-    this.remove.emit(contact);
-  }
-
-  contactUpdate(contact: Contact){
-    this.update.emit(contact);
-  }
-
-  showMap(contact: Contact){
-    this.map.emit(contact);
   }
 }

@@ -1,29 +1,7 @@
-
-  <div  *ngFor="let contact of contacts">
-<md-card>
-
-  <md-card-header >
-    <md-icon id="iconAccount">account_circle</md-icon>
-    </md-card-header>
-<!--  <img src="" class="md-card-image" alt="image caption">-->
-  <md-card-content>
-    <h2>  {{contact.firstName +' '+ contact.lastName}}</h2>
-    <p><strong>Phone: </strong>{{contact.phone}}</p>
-    <p><strong>Address: </strong>{{contact.address}}</p>
-    <p><strong>City: </strong>{{contact.city}}</p>
-  </md-card-content>
-
-<md-card-actions>
-  <button md-icon-button (click)="contactDelete(contact)">
-    <md-icon>delete</md-icon>
-  </button>
-  <button md-icon-button (click)="contactUpdate(contact)">
-    <md-icon>edit</md-icon>
-  </button>
-  <button md-icon-button style="float: right" (click)="showMap(contact)">
-    <md-icon>pin_drop</md-icon>
-  </button>
-</md-card-actions>
-</md-card>
-</div>
+<app-contact-card-list-item *ngFor="let contact of contacts"
+                       [contact]="contact"
+                       [update]="contactUpdate"
+                       [remove]="contactDelete"
+                       [map]="showMap">
+</app-contact-card-list-item>
 

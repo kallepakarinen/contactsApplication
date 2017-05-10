@@ -49,6 +49,7 @@ export class ContactComponent implements OnInit{
   }
 
   deleteContact(contact: Contact) {
+    console.log(contact);console.log('moi');
     this.contactService.deleteContact(contact);
     this.updateContacts();
   }

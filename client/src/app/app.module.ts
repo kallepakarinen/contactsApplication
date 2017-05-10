@@ -21,6 +21,7 @@ import { UserComponent } from './user/user.component';
 import {DialogService} from "./contact/services/dialog.service";
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
+import { ContactCardListItemComponent } from './contact/contact-card-list-item/contact-card-list-item.component';
 //import {Observable} from "rxjs";
 const routes = [
   {
@@ -47,6 +48,7 @@ const routes = [
     UserComponent,
     MapDialogComponent,
     ContactAddressPipe,
+    ContactCardListItemComponent,
   ],
 
   imports: [
