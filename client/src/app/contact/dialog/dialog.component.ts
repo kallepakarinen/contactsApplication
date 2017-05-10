@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialogRef} from "@angular/material";
 import {Contact} from "../contact";
+import {isNullOrUndefined, isUndefined} from "util";
 
 @Component({
   selector: 'app-dialog',
@@ -17,8 +18,13 @@ export class DialogComponent implements OnInit {
   }
 
 save(){
-    this.dialogRef.close(this.contact);
+ if (!this.contact.firstName || !this.contact.lastName){
+  alert('Give your name');
+  }else{
+   this.dialogRef.close(this.contact);
+ }
 }
+
   ngOnInit(){
     this.dialogMode = 'Edit';
     if(!this.contact){

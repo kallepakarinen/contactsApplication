@@ -2,7 +2,7 @@ import {Component, OnInit } from '@angular/core';
 import {Contact} from "./contact";
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
-import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-contact',
@@ -15,9 +15,8 @@ export class ContactComponent implements OnInit{
   contacts:  Contact[];
   contact: Contact;
 
- //contactDelete: Contact;
 
-  constructor(public dialog: DialogService, private contactService: ContactService, private router: Router){
+  constructor(public dialog: DialogService, private contactService: ContactService){
   }
 
   ngOnInit(): void {

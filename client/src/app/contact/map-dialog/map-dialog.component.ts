@@ -17,12 +17,10 @@ close(){
     this.dialog.close();
 }
 getMapSource(url){
-  console.log(url);
   return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 }
   ngOnInit() {
     this.mapUrl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDmUcAU7BWA5VkyY5KvP84kM8fc_bdXMoM&q=' + this.contact.address + ', ' + this.contact.city;
-  console.log(this.mapUrl);
   }
 
 }
