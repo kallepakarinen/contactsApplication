@@ -13,25 +13,27 @@ import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { ContactService } from './contact/services/contact.service';
 import { ContactApiService } from './contact/services/contact-api.service';
-import { DialogComponent } from './contact/dialog/dialog.component';
 import {ContactLocalstorageService} from "./contact/services/contact-localstorage.service";
-import { ContactComponent } from './contact/contact.component';
-import { UserComponent } from './user/user.component';
+import {UserService} from "./contact/user/services/user.service";
 
+import { DialogComponent } from './contact/dialog/dialog.component';
+import { ContactComponent } from './contact/contact.component';
 import {DialogService} from "./contact/services/dialog.service";
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { ContactCardListItemComponent } from './contact/contact-card-list-item/contact-card-list-item.component';
+import { LoginComponent } from './contact/user/login/login.component';
+import {UserApiService} from "./contact/user/services/user-api.service";
 //import {Observable} from "rxjs";
 const routes = [
   {
     path: '',
-    redirectTo: 'user',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'user',
-    component:UserComponent
+    path: 'login',
+    component:LoginComponent
   },
   {
     path: 'contact',
@@ -45,10 +47,10 @@ const routes = [
     ContactListComponent,
     DialogComponent,
     ContactComponent,
-    UserComponent,
     MapDialogComponent,
     ContactAddressPipe,
     ContactCardListItemComponent,
+    LoginComponent
   ],
 
   imports: [
@@ -67,7 +69,7 @@ const routes = [
   //Observable
   ],
 
-  providers: [ContactService, ContactApiService, ContactLocalstorageService, DialogService],
+  providers: [ContactService, ContactApiService, ContactLocalstorageService, DialogService, UserService, UserApiService],
   bootstrap: [AppComponent,  DialogComponent, MapDialogComponent]
 })
 export class AppModule { }

@@ -20,14 +20,17 @@ export class ContactComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.contact = new Contact;
+  //  this.contact = new Contact;
     this.updateContacts();
   }
 
   updateContacts() {
-    this.contacts = this.contactService.findContacts();
-  }
+    this.contactService.findContacts().subscribe(contacts => {
+      this.contacts = contacts;
+    });
 
+  }
+/*
  saveContact(): void {
     let buttonPressed = this.dialog.contactDialog();
     buttonPressed.subscribe(result => {
@@ -36,36 +39,41 @@ export class ContactComponent implements OnInit{
              this.updateContacts();
       }
     });
+  }*/
+  private saveContact(contact) {
+    this.dialog.contactDialog(contact).subscribe(contact => {
+      if (contact){
+        this.contactService.addNewContact(contact).subscribe(response => {
+          this.updateContacts()
+        });
+      }
+    });
   }
 
-  contactUpdate(contact: Contact): void {
-    let buttonPressed = this.dialog.contactDialog(contact);
-    buttonPressed.subscribe(result => {
-      if (result) {
-        this.contactService.updateContact(result);
-        this.updateContacts();
+
+  contactUpdate(contact) {
+    this.dialog.contactDialog(contact).subscribe(contact => {
+      console.log(contact);
+      if (contact){
+        this.contactService.addNewContact(contact).subscribe(response => {
+          this.updateContacts()
+        });
       }
     });
   }
 
   deleteContact(contact: Contact) {
-    console.log(contact);console.log('moi');
-    this.contactService.deleteContact(contact);
-    this.updateContacts();
+    this.contactService.deleteContact(contact).subscribe(allDone => {
+      if (allDone) {
+        this.updateContacts();
+      }
+    });
   }
+
 
   showOnMap(contact: Contact): void {
     this.dialog.mapDialog(contact);
     console.log(contact);
   }
-  /*
-   constructor(){
-   this.ContactService.findContacts().subscribe(data =>{
-   console.log(data.json);
-   //this.contacts = data.json();
-   this.contacts = data.json();
-   });
-
-   }*/
 
 }

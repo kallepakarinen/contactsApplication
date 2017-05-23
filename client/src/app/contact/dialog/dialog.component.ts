@@ -13,7 +13,6 @@ export class DialogComponent implements OnInit {
 
   contact: Contact;
   dialogMode: string;
-  saveMode: string;
   constructor(public dialogRef: MdDialogRef<DialogComponent>){
   }
 

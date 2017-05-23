@@ -8,7 +8,6 @@
  * Created by ekoodi on 8.5.2017.
  */
 
-
 describe('ContactLocalstorageService', () => {
 
   let localStorageKey = 'ca-contacts';
