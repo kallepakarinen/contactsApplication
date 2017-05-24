@@ -1,0 +1,21 @@
+
+#iconAccount {
+  font-size: 48px;
+  margin: auto;
+  color: white;
+}
+
+md-card {
+  min-width: 400px;
+  margin: 10px 0;
+}
+
+#mapButton{
+  color: red;
+  float:right;
+}
+
+#itemHeaderDiv{
+
+  background-color: cornflowerblue;;
+}
