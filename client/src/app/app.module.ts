@@ -5,8 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
-  MdButtonModule, MdInputModule, MdCardModule, MdIconModule, MdDialogModule
-} from '@angular/material';
+  MdButtonModule, MdInputModule, MdCardModule, MdIconModule, MdDialogModule, MdToolbarModule, MdSidenavModule} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -14,7 +13,7 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import { ContactService } from './contact/services/contact.service';
 import { ContactApiService } from './contact/services/contact-api.service';
 import {ContactLocalstorageService} from "./contact/services/contact-localstorage.service";
-import {UserService} from "./contact/user/services/user.service";
+import {UserService} from "./user/services/user.service";
 
 import { DialogComponent } from './contact/dialog/dialog.component';
 import { ContactComponent } from './contact/contact.component';
@@ -22,8 +21,8 @@ import {DialogService} from "./contact/services/dialog.service";
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { ContactCardListItemComponent } from './contact/contact-card-list-item/contact-card-list-item.component';
-import { LoginComponent } from './contact/user/login/login.component';
-import {UserApiService} from "./contact/user/services/user-api.service";
+import { LoginComponent } from './user/login/login.component';
+import {UserApiService} from "./user/services/user-api.service";
 //import {Observable} from "rxjs";
 const routes = [
   {
@@ -65,6 +64,8 @@ const routes = [
     MdCardModule,
     MdIconModule,
     MdDialogModule,
+    MdToolbarModule,
+    MdSidenavModule,
     RouterModule.forRoot(routes)
   //Observable
   ],

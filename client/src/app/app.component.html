@@ -1,8 +1,21 @@
-<div class="app-content">
-  <router-outlet></router-outlet>
-</div>
+<md-sidenav-container >
+  <md-toolbar class="mat-elevation-z5" color="primary">
+
+  <button md-icon-button (click)="sidenav.toggle()">
+    <md-icon>menu</md-icon>
+  </button>
+    Toolbar
+  </md-toolbar>
+  <md-sidenav #sidenav mode="push">
+  <div>
+    Sidenav content
+  </div>
+
+  </md-sidenav>
 
 
-
-
-
+  <div class="ca-app-container">
+    <!--Angular router näyttää komponentit tässä-->
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

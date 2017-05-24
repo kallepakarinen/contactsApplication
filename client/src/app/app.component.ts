@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import {MdSidenavModule} from "@angular/material";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-
+  @ViewChild('sidenav') sidenav: MdSidenavModule;
   //title = 'apps!';
 
     constructor(){

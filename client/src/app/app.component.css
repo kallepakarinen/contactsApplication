@@ -7,3 +7,16 @@ md-sidenav-container {
 md-sidenav {
   width: 300px;
 }
+
+md-toolbar {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.side-toolbar {
+  height: 200px;
+}
+
+.app-content {
+  padding: 10px;
+}
