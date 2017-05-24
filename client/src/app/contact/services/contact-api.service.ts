@@ -9,7 +9,9 @@ export class ContactApiService {
   constructor(private http: Http) { }
 
   findContacts(){
+
     return this.http.get(this.url).map(response => response.json() as Contact[]);
+
   }
 
   saveContact (contact: Contact){
@@ -21,6 +23,7 @@ export class ContactApiService {
 }
 
   updateContact(contact: Contact){
+console.log(contact.id);
   return this.http.put(this.url + '/' + contact.id, contact);
 }
 

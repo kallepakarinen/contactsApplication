@@ -40,23 +40,25 @@ export class ContactComponent implements OnInit{
       }
     });
   }*/
-  private saveContact(contact) {
+saveContact(contact) {
     this.dialog.contactDialog(contact).subscribe(contact => {
       if (contact){
         this.contactService.addNewContact(contact).subscribe(response => {
-          this.updateContacts()
+          if(response) {
+            this.updateContacts()
+          }
         });
       }
     });
   }
 
-
   contactUpdate(contact) {
     this.dialog.contactDialog(contact).subscribe(contact => {
-      console.log(contact);
       if (contact){
-        this.contactService.addNewContact(contact).subscribe(response => {
+        this.contactService.updateContact(contact).subscribe(response => {
+          if(response){
           this.updateContacts()
+          }
         });
       }
     });
@@ -69,7 +71,6 @@ export class ContactComponent implements OnInit{
       }
     });
   }
-
 
   showOnMap(contact: Contact): void {
     this.dialog.mapDialog(contact);

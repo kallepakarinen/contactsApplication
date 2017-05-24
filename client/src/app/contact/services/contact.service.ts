@@ -13,7 +13,7 @@ export class ContactService {
 
   public addNewContact(contact: Contact) {
 
-    return this.contactApiService.saveContact(contact);
+    return this.contactApiService.createContact(contact);
     /*
     let contacts = this.storageService.loadContacts();
     let contactsLength = contacts.length;
@@ -44,15 +44,13 @@ export class ContactService {
 */
 
   }
-  /*
+
 public updateContact(contact: Contact){
+    return this.contactApiService.updateContact(contact);
+    /*
     let contacts = this.storageService.loadContacts();
     let updateId =  _.findIndex(contacts, ['id', contact.id]);
     contacts.splice(updateId, 1, contact);
-    this.storageService.saveContacts(contacts);
-}*/
-
-
-
-
+    this.storageService.saveContacts(contacts);*/
+}
 }

@@ -4,3 +4,8 @@ margin: 20px 0 0 525px;
   background-color: cornflowerblue;
   color: white;
 }
+md-card {
+  width: 450px;
+  background-color: cornflowerblue;
+  color: white;
+}
