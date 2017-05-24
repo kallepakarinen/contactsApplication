@@ -1,0 +1,18 @@
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.deps.json
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.json
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.dev.json
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.dll
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.pdb
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.csprojResolveAssemblyReference.cache
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.AssemblyInfo.cs
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.dll
+c:\users\ekoodi\documents\visual studio 2017\Projects\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.pdb
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\bin\Debug\netcoreapp1.1\WebApi.deps.json
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.json
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.dev.json
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\bin\Debug\netcoreapp1.1\WebApi.dll
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\bin\Debug\netcoreapp1.1\WebApi.pdb
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\obj\Debug\netcoreapp1.1\WebApi.csprojResolveAssemblyReference.cache
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\obj\Debug\netcoreapp1.1\WebApi.AssemblyInfo.cs
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\obj\Debug\netcoreapp1.1\WebApi.dll
+D:\dev\HTML\contactApplication\contactsApplication\server\WebApi\obj\Debug\netcoreapp1.1\WebApi.pdb
