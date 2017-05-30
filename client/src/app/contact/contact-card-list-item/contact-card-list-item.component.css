@@ -1,13 +1,14 @@
-
 #iconAccount {
-  font-size: 48px;
-  margin: auto;
-  color: white;
+  width: 80px;
+  height: 80px;
+  font-size: 60px;
+  color: #ffffff;
 }
 
 md-card {
   min-width: 400px;
   margin: 10px 0;
+  color: white;
 }
 
 #mapButton{
@@ -15,7 +16,11 @@ md-card {
   float:right;
 }
 
-#itemHeaderDiv{
-
-  background-color: cornflowerblue;;
+.itemHeaderDiv{
+  background-color: cornflowerblue;
+  margin-bottom: 0;
+  padding: 12px;
 }
+ .footerButton{
+   color:black;
+ }

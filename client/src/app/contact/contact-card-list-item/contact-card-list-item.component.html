@@ -1,20 +1,28 @@
 <md-card>
-<div id="itemHeaderDiv" fxLayout="row" fxLayoutAlign="center center">
+<div md-card-image class="itemHeaderDiv" fxLayout="row" >
       <md-icon id="iconAccount">account_circle</md-icon>
-</div>
+
     <!--  <img src="" class="md-card-image" alt="image caption">-->
     <md-card-content>
-      <h2>  {{contact.firstName +' '+ contact.lastName}}</h2>
-      <p><strong>Phone: </strong>{{contact.phone}}</p>
-      <p><strong>Address: </strong>{{contact.address}}</p>
-      <p><strong>City: </strong>{{contact.city}}</p>
+      <div class="ca-contact-list-item-title">
+      <h2>{{contact.firstName +' '+ contact.lastName}}</h2>
+      </div>
+      <div class="ca-contact-list-item-title">
+      <strong>Phone: </strong>{{contact.phone}}
+      </div>
+        <div class="ca-contact-list-item-title">
+      <strong>Address: </strong>{{contact.address}}
+        </div>
+      <div class="ca-contact-list-item-title">
+     <strong>City: </strong>{{contact.city}}
+      </div>
     </md-card-content>
-
+</div>
     <md-card-actions>
-      <button md-icon-button (click)="contactDelete(contact)">
+      <button md-icon-button class="footerButton" (click)="contactDelete(contact)">
         <md-icon>delete</md-icon>
       </button>
-      <button md-icon-button (click)="contactUpdate(contact)">
+      <button md-icon-button class="footerButton" (click)="contactUpdate(contact)">
         <md-icon>edit</md-icon>
       </button>
       <button md-icon-button id="mapButton" (click)="showMap(contact)">
