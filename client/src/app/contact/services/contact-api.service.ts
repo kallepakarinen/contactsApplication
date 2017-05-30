@@ -13,11 +13,11 @@ export class ContactApiService {
     return this.http.get(this.url).map(response => response.json() as Contact[]);
 
   }
-
+/*
   saveContact (contact: Contact){
  return contact.id ? this.updateContact(contact) : this.createContact(contact);
   }
-
+*/
   createContact(contact: Contact){
     return this.http.post(this.url,contact);
 }
