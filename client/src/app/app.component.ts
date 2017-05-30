@@ -10,7 +10,7 @@ import {MdSidenavModule} from "@angular/material";
 
 export class AppComponent {
   @ViewChild('sidenav') sidenav: MdSidenavModule;
-  //title = 'apps!';
+
 
     constructor(){
 }

@@ -1,3 +1,9 @@
+.itemHeaderDiv{
+  background-color: cornflowerblue;
+  margin-bottom: 0;
+  padding: 12px;
+}
+
 #iconAccount {
   width: 80px;
   height: 80px;
@@ -9,6 +15,7 @@ md-card {
   min-width: 400px;
   margin: 10px 0;
   color: white;
+  letter-spacing: 1px;
 }
 
 #mapButton{
@@ -16,11 +23,6 @@ md-card {
   float:right;
 }
 
-.itemHeaderDiv{
-  background-color: cornflowerblue;
-  margin-bottom: 0;
-  padding: 12px;
-}
  .footerButton{
    color:black;
  }

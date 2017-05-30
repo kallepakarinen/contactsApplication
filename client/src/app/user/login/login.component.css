@@ -1,4 +1,9 @@
 md-card {
-  min-width: 400px;
-  margin: 10px 0;
+
+}
+.login-background{
+  height: 160px;
+  background: url("../../../assets/images/space.jpg");
+  background-position-y: 160px;
+  background-size: cover;
 }

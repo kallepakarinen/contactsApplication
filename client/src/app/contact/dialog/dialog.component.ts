@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialogRef} from "@angular/material";
 import {Contact} from "../contact";
-import {isNullOrUndefined, isUndefined} from "util";
+
 
 @Component({
   selector: 'app-dialog',
@@ -9,8 +9,6 @@ import {isNullOrUndefined, isUndefined} from "util";
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-
-
   contact: Contact;
   dialogMode: string;
   constructor(public dialogRef: MdDialogRef<DialogComponent>){
