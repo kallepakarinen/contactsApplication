@@ -2,7 +2,7 @@ import {Component, OnInit } from '@angular/core';
 import {Contact} from "./contact";
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
-
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +13,7 @@ import {DialogService} from "./services/dialog.service";
 export class ContactComponent implements OnInit{
 
   contacts:  Contact[];
-  contact: Contact;
+//  contact: Contact;
 
 
   constructor(public dialog: DialogService, private contactService: ContactService){
@@ -40,36 +40,34 @@ export class ContactComponent implements OnInit{
       }
     });
   }*/
-saveContact(contact) {
-    this.dialog.contactDialog(contact).subscribe(contact => {
-      if (contact){
-        this.contactService.addNewContact(contact).subscribe(response => {
-          if(response) {
-            this.updateContacts()
-          }
+
+
+  saveContact(): void {
+    let input = this.dialog.contactDialog();
+    input.subscribe(result => {
+      if (result) {
+        this.contactService.saveContact(result).subscribe(response => {
+          this.updateContacts();
         });
       }
     });
   }
 
-  contactUpdate(contact) {
-    this.dialog.contactDialog(contact).subscribe(contact => {
-      if (contact){
-        this.contactService.updateContact(contact).subscribe(response => {
-          if(response){
-          this.updateContacts()
-          }
+  contactUpdate(contact: Contact): void {
+    let input = this.dialog.contactDialog(contact);
+    input.subscribe(result => {
+      if (result) {
+        this.contactService.updateContact(result).subscribe(response => {
+          this.updateContacts();
         });
       }
     });
   }
 
   deleteContact(contact: Contact) {
-    this.contactService.deleteContact(contact).subscribe(allDone => {
-      if (allDone) {
+    this.contactService.deleteContact(contact.id).subscribe(response => {
         this.updateContacts();
-      }
-    });
+      });
   }
 
   showOnMap(contact: Contact): void {

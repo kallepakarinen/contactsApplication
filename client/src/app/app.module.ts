@@ -23,7 +23,6 @@ import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { ContactCardListItemComponent } from './contact/contact-card-list-item/contact-card-list-item.component';
 import { LoginComponent } from './user/login/login.component';
 import {UserApiService} from "./user/services/user-api.service";
-//import {Observable} from "rxjs";
 const routes = [
   {
     path: '',
@@ -71,7 +70,8 @@ const routes = [
   ],
 
   providers: [ContactService, ContactApiService, ContactLocalstorageService, DialogService, UserService, UserApiService],
-  bootstrap: [AppComponent,  DialogComponent, MapDialogComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent, MapDialogComponent]
 })
 export class AppModule { }
 

@@ -1,12 +1,7 @@
-  import {inject, TestBed} from "@angular/core/testing";
+/*  import {inject, TestBed} from "@angular/core/testing";
  import {ContactLocalstorageService} from "./contact-localstorage.service";
  import {Contact} from "../contact";
- import {Observable} from 'rxjs/Observable';
-
  import * as _ from 'lodash';
- /**
- * Created by ekoodi on 8.5.2017.
- */
 
 describe('ContactLocalstorageService', () => {
 
@@ -38,7 +33,9 @@ describe('ContactLocalstorageService', () => {
       new Contact(3, 'FN', 'LN', '534', 'Address', 'city')
     ]
   }
+*/
 
+/*
 
   it('Should do something', inject([ContactLocalstorageService], (service: ContactLocalstorageService) => {
     let data = localStorage.getItem(localStorageKey);
@@ -74,3 +71,4 @@ describe('ContactLocalstorageService', () => {
 
 
 });
+*/

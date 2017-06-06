@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../contact";
-
-
+import {ContactStorage} from "./contact-storage";
+import {Observable} from "rxjs/Observable";
+import * as _ from "lodash";
 
 @Injectable()
-export class ContactLocalstorageService {
+export class ContactLocalstorageService implements ContactStorage{
   private contactsStorageKey = 'ca-contacts';
-  contacts = [];
 
   constructor() {
     if(!localStorage.getItem(this.contactsStorageKey)){
@@ -14,63 +14,50 @@ export class ContactLocalstorageService {
     }
   }
 
-//test app
-/*
-  public loadContacts(){
-    let contacts =this.getLocalStorageData();
-    return Observable.of(contacts);
-  }
-
-  public saveContacts(contacts) {
-    this.setLocalStorageData(contacts);
-    return Observable.of(contacts);
-  }
-
-  private getLocalStorageData() {
-    let data = localStorage.getItem(this.contactsStorageKey);
-    return JSON.parse(data);
-  }
-
-  private setLocalStorageData(givenData) {
-    let contacts = JSON.stringify(givenData);
-    localStorage.setItem(this.contactsStorageKey, contacts);
-  }
-
-*/
-
-
-public loadContacts(){
-  return this.getLocalStorageData();
+public findContacts(): Observable<Contact[]>{
+  let contacts = this.getLocalStorageData();
+  return Observable.of(contacts);
 }
 
-  public saveContacts(contacts) {
-    /*
-     let contacts = this.storageService.loadContacts();
-     let contactsLength = contacts.length;
-     if (contacts <= 1) {
-     contact.id = 1;
+public saveContact(contact: Contact): Observable<any>{
+  let contacts = this.getLocalStorageData();
+  let contactsLength = _.size([contacts]);
+  console.log(contactsLength);
+  if (contacts <= 1) {
+    contact.id = 1;
+  }
+  else {
+    contact.id = contactsLength + 1;
+  }
+  contacts.push(contact);
+  this.setLocalStorageData(contacts);
+  return Observable.of(null);
+}
+
+  public deleteContact(id: number): Observable<any> {
+   if(id >= 0)
+   {
+     let contacts = this.getLocalStorageData();
+     let index = _.findIndex(contacts, ['id', id]);
+     if(index >= 0){
+       contacts.splice(index, 1);
+       this.setLocalStorageData(contacts);
      }
-     else {
-     contact.id = contactsLength + 1;
-     }
-     contacts.push(contact);
-     this.storageService.saveContacts(contacts);
-     */
-    this.setLocalStorageData(contacts);
+   }
+   return Observable.of(null);
   }
 
-
-  public deleteContact(contact: Contact) {
-
-    /*
-     let contacts = this.storageService.loadContacts();
-     let removeId =   _.findIndex(contacts, ['id', contact.id]);
-     contacts.splice(removeId, 1);
-     this.storageService.saveContacts(contacts);
-     */
-
-  }
-
+updateContact(contact: Contact): Observable<any>{
+ if (contact){
+   let contacts = this.getLocalStorageData();
+   let index = _.findIndex(contacts, ['id', contact.id]);
+   if (index >= 0){
+     contacts.splice(index, 1, contact);
+     this.setLocalStorageData(contacts);
+   }
+ }
+  return Observable.of(null);
+}
 
   private getLocalStorageData() {
     let data = localStorage.getItem(this.contactsStorageKey);
@@ -81,7 +68,6 @@ public loadContacts(){
     let contacts = JSON.stringify(givenData);
     localStorage.setItem(this.contactsStorageKey, contacts);
   }
-
 }
 
 
