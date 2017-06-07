@@ -44,7 +44,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Contact contact)
         {
-          _contactService.UpdateContact(contact);//// (id, contact)
+          _contactService.UpdateContact(contact);
         }
 
         // DELETE api/contacts/5
