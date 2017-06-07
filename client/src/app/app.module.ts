@@ -14,7 +14,9 @@ import { ContactService } from './contact/services/contact.service';
 import { ContactApiService } from './contact/services/contact-api.service';
 import {ContactLocalstorageService} from "./contact/services/contact-localstorage.service";
 import {UserService} from "./user/services/user.service";
+import {DeviceService} from "./utils/device.service";
 
+import {VibrationDirective} from './utils/vibration.directive';
 import { DialogComponent } from './contact/dialog/dialog.component';
 import { ContactComponent } from './contact/contact.component';
 import {DialogService} from "./contact/services/dialog.service";
@@ -48,7 +50,8 @@ const routes = [
     MapDialogComponent,
     ContactAddressPipe,
     ContactCardListItemComponent,
-    LoginComponent
+    LoginComponent,
+    VibrationDirective
   ],
 
   imports: [
@@ -69,7 +72,7 @@ const routes = [
   //Observable
   ],
 
-  providers: [ContactService, ContactApiService, ContactLocalstorageService, DialogService, UserService, UserApiService],
+  providers: [ContactService, ContactApiService, ContactLocalstorageService, DialogService, UserService, UserApiService, DeviceService],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent, MapDialogComponent]
 })
