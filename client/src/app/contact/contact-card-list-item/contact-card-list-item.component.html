@@ -1,33 +1,30 @@
 <md-card>
-<div md-card-image class="itemHeaderDiv" fxLayout="row" >
-      <md-icon id="iconAccount">account_circle</md-icon>
+  <div md-card-image class="itemHeaderDiv" fxLayout="row">
+    <md-icon id="iconAccount">account_circle</md-icon>
 
     <!--  <img src="" class="md-card-image" alt="image caption">-->
     <md-card-content>
       <div class="ca-contact-list-item-title">
-      <h2>{{contact.firstName +' '+ contact.lastName}}</h2>
+        <h2>{{contact.firstName +' '+ contact.lastName}}</h2>
       </div>
       <div class="ca-contact-list-item-title">
-      <strong>Phone: </strong>{{contact.phone}}
+        <strong>Phone: </strong>{{contact.phone}}
       </div>
-        <div class="ca-contact-list-item-title">
-      <strong>Address: </strong>{{contact.address}}
-        </div>
       <div class="ca-contact-list-item-title">
-     <strong>City: </strong>{{contact.city}}
+        <strong>Address: </strong> {{contact | contactAddress}}
       </div>
     </md-card-content>
-</div>
-    <md-card-actions>
-      <button md-icon-button class="footerButton" (click)="contactDelete(contact)">
-        <md-icon>delete</md-icon>
-      </button>
-      <button md-icon-button class="footerButton" (click)="contactUpdate(contact)">
-        <md-icon>edit</md-icon>
-      </button>
-      <button md-icon-button id="mapButton" (click)="showMap(contact)">
-        <md-icon>pin_drop</md-icon>
-      </button>
-    </md-card-actions>
-  </md-card>
+  </div>
+  <md-card-actions>
+    <button md-icon-button class="footerButton" (click)="contactDelete(contact)">
+      <md-icon>delete</md-icon>
+    </button>
+    <button md-icon-button class="footerButton" (click)="contactUpdate(contact)">
+      <md-icon>edit</md-icon>
+    </button>
+    <button md-icon-button id="mapButton" (click)="showMap(contact)">
+      <md-icon>pin_drop</md-icon>
+    </button>
+  </md-card-actions>
+</md-card>
 
