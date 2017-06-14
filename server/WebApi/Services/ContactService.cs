@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebApi.model;
+using WebApi.Model;
 using WebApi.Repository;
 
 namespace WebApi.Services

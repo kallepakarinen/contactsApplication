@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WebApi.model;
+using WebApi.Model;
 
 namespace WebApi.Repository
 {

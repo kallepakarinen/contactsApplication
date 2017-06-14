@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-using WebApi.model;
+using WebApi.Model;
 
 namespace WebApi.Repository
 {

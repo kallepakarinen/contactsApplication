@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApi.model
+namespace WebApi.Model
 {
     public class Contact
     {

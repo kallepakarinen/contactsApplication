@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApi.model;
+///??
+using WebApi.Model;
+
 
 namespace WebApi
 {
@@ -9,10 +11,12 @@ namespace WebApi
             : base(options) { }
 
         public DbSet<Contact> Contact { get; set; }
+        public DbSet<User> User { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Contact>().ToTable("Contact");
-    
+            modelBuilder.Entity<User>().ToTable("User");
         }
     }
 }

@@ -1,11 +1,20 @@
-﻿using WebApi.Services;
+﻿using System;
+using WebApi.Services;
 using WebApi.Repository;
+using WebApi.Config;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 //using WebApi.Repository;
 
 namespace WebApi
@@ -24,40 +33,44 @@ namespace WebApi
 
         public IConfigurationRoot Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            /*
+            /////
             var config = Configuration.GetSection("AppSettings").Get<AppSettings>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            */
 
-            services.AddSingleton<IContactService, ContactService>();
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
 
-            //COnfigure Cors
-            services.AddCors(o => o.AddPolicy("DevPolicy", builder =>
-            {
-                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            }));
-
-            // Add framework services.
-            
-
             //Configure database
-            /*
             services.AddDbContext<DatabaseContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Configure Cors
+            services.AddCors(options =>
             {
-                if (config.UseInMemoryDatabase)
-                    options.UseInMemoryDatabase();
-                else
-                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
-            });*/
-            
-              
-    
-            services.AddDbContext<DatabaseContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
+            //Configure authorization
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser()
+                    .Build());
+            });
+
+ 
+        
             services.AddMvc();
         }
 
@@ -66,18 +79,28 @@ namespace WebApi
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.UseCors("DevPolicy");
-            app.UseMvc();
 
             var context = app.ApplicationServices.GetService<DatabaseContext>();
             if (context.Database.EnsureCreated())
                 context.Database.Migrate();
-        }
-        private static void InitializeDatabase(IApplicationBuilder app)
-        {
-            var context = app.ApplicationServices.GetService<DatabaseContext>();
-            if (context.Database.EnsureCreated())
-                context.Database.Migrate();
+
+            app.UseJwtBearerAuthentication(new JwtBearerOptions()
+            {
+                TokenValidationParameters = new TokenValidationParameters()
+                {
+                    IssuerSigningKey = TokenOptions.Key,
+                    ValidAudience = TokenOptions.Audience,
+                    ValidIssuer = TokenOptions.Issuer,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromMinutes(0)
+                }
+            });
+
+           // app.UseCors("DevPolicy");
+            app.UseMvc();
+            /////
+           
         }
     }
 }
