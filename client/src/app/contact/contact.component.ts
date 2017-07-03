@@ -1,8 +1,7 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from "./contact";
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
-import * as _ from "lodash";
 
 @Component({
   selector: 'app-contact',
@@ -10,17 +9,17 @@ import * as _ from "lodash";
   styleUrls: ['./contact.component.css'],
   providers: [ContactService]
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
 
-  contacts:  Contact[];
+  contacts: Contact[];
 //  contact: Contact;
 
 
-  constructor(public dialog: DialogService, private contactService: ContactService){
+  constructor(public dialog: DialogService, private contactService: ContactService) {
   }
 
   ngOnInit(): void {
-  //  this.contact = new Contact;
+    //  this.contact = new Contact;
     this.updateContacts();
   }
 
@@ -30,17 +29,6 @@ export class ContactComponent implements OnInit{
     });
 
   }
-/*
- saveContact(): void {
-    let buttonPressed = this.dialog.contactDialog();
-    buttonPressed.subscribe(result => {
-      if (result) {
-        this.contactService.addNewContact(result);
-             this.updateContacts();
-      }
-    });
-  }*/
-
 
   saveContact(): void {
     let input = this.dialog.contactDialog();
@@ -66,8 +54,8 @@ export class ContactComponent implements OnInit{
 
   deleteContact(contact: Contact) {
     this.contactService.deleteContact(contact.id).subscribe(response => {
-        this.updateContacts();
-      });
+      this.updateContacts();
+    });
   }
 
   showOnMap(contact: Contact): void {

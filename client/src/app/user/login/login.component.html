@@ -2,29 +2,28 @@
   <md-card class="ca-card">
     <div md-card-image class="login-background">
       <div fxLayout="row" fxFlexFill fxLayoutAlign="start center">
-Login
+        Login
       </div>
     </div>
     <md-card-content>
       <div fxLayout="row" fxLayoutAlign="start center">
-        <md-icon >account_circle</md-icon>
+        <md-icon>account_circle</md-icon>
         <md-input-container>
-          <input mdInput type="text"
+          <input name="username" id="username" [(ngModel)]="user.username" mdInput type="text"
                  placeholder="Username">
         </md-input-container>
+
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <md-icon>lock</md-icon>
         <md-input-container>
-          <input mdInput type="password"
+          <input name="username" id="password" [(ngModel)]="user.password" mdInput type="password"
                  placeholder="Password">
         </md-input-container>
       </div>
       <br>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <button caVibration color="primary" md-raised-button
-
-                (click)="loginButton()">Login
+        <button appVibration md-raised-button (click)="login()" [disabled]="!(user.username && user.password)">Login
         </button>
       </div>
     </md-card-content>

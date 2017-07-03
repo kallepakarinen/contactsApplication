@@ -1,19 +1,15 @@
-import { Injectable } from '@angular/core';
-import {User} from "../user";
-import {Http} from "@angular/http";
+import {Injectable} from '@angular/core';
+import {HttpService} from "./http.service";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class UserApiService {
-  url = 'http://localhost:49935/api/login';
+  private url: string = environment.endpointUrl + '/login';
 
-  constructor(private http: Http) { }
-
-  findUsers() {
-    return this.http.get(this.url).map(response => response.json() as User[]);
+  constructor(private http: HttpService) {
   }
 
-  findUserByUsername(Username) {
-    return this.http.get(this.url + '/' + Username).map(response => response.json() as User);
+  login() {
+    return this.http.put(this.url, null);
   }
-
 }

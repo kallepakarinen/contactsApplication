@@ -14,20 +14,21 @@ export class ContactCardListItemComponent implements OnInit {
   @Input() map: EventEmitter<Contact>;
 
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  contactDelete(contact: Contact){
+  contactDelete(contact: Contact) {
     this.remove.emit(contact);
   }
 
-  contactUpdate(contact: Contact){
+  contactUpdate(contact: Contact) {
     this.update.emit(contact);
   }
 
-  showMap(contact: Contact){
+  showMap(contact: Contact) {
     this.map.emit(contact);
   }
 }
