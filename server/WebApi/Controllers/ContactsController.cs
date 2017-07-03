@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Services;
 using WebApi.Model;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
     [Route("api/contacts")]
+    [EnableCors("CorsPolicy")]
+    [Authorize("Bearer")]
     public class ContactsController : Controller
     {  
         private readonly IContactService _contactService;

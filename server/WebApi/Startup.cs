@@ -46,9 +46,7 @@ namespace WebApi
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
 
-            //Configure database
-            services.AddDbContext<DatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+           
 
             //Configure Cors
             services.AddCors(options =>
@@ -60,6 +58,10 @@ namespace WebApi
                     .AllowCredentials());
             });
 
+            services.AddMvc();
+            //Configure database
+            services.AddDbContext<DatabaseContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //Configure authorization
             services.AddAuthorization(auth =>
             {
@@ -71,7 +73,7 @@ namespace WebApi
 
  
         
-            services.AddMvc();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +81,7 @@ namespace WebApi
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.UseCors("CorsPolicy");
 
             var context = app.ApplicationServices.GetService<DatabaseContext>();
             if (context.Database.EnsureCreated())
